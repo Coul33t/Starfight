@@ -3,7 +3,7 @@ import spaceship
 var
   corvette = newCorvette()
 
-discard corvette.add_module(newGaussCannon())
-discard corvette.add_module(newGaussCannon())
-discard corvette.add_module(newTitaniumArmor())
+discard corvette.add_module("GaussCannon")
+discard corvette.add_module("GaussCannon")
+discard corvette.add_module("TitaniumArmor")
 

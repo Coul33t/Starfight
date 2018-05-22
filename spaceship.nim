@@ -68,22 +68,18 @@ proc newTitaniumArmor *: Module_Defense =
   result.def = 100
   result.def_type = armor
 
-proc add_module *(ss: Spaceship, module: Module): bool =
-  case module.mod_type
-  of atk:
+proc add_module *(ss: Spaceship, mod_name: string): bool =
+  case mod_name
+  of "GaussCannon":
     if ss.nb_offense_mod < ss.nb_offense_slot:
+      var module = newGaussCannon()
       ss.mod_onboard.add(module)
       return true
     else:
       return false
-  of def:
+  of "TitaniumArmor":
     if ss.nb_defense_mod < ss.nb_defense_slot:
-      ss.mod_onboard.add(module)
-      return true
-    else:
-      return false
-  of uti:
-    if ss.nb_utility_mod < ss.nb_utility_slot:
+      var module = newTitaniumArmor()
       ss.mod_onboard.add(module)
       return true
     else:
